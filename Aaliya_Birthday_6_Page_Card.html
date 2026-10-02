@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Open Me ❤️ — Aaliya</title>
+<style>
+*{box-sizing:border-box} html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{font-family:Georgia,serif;background:#12051c;color:#fff}
+.page{display:none;position:absolute;inset:0;align-items:center;justify-content:center;text-align:center;padding:24px;
+background:radial-gradient(circle at 50% 35%,#5b1238 0,#210a2d 42%,#09020f 100%)}
+.page.active{display:flex;animation:fade .7s ease}
+.card{width:min(92vw,560px);min-height:70vh;padding:42px 28px;border:1px solid #ff9bb9aa;
+border-radius:34px;background:#ffffff12;backdrop-filter:blur(10px);box-shadow:0 0 45px #ff2f6d55;
+display:flex;flex-direction:column;justify-content:center;align-items:center}
+h1{font-size:clamp(38px,9vw,70px);margin:12px 0;color:#ffd2df}
+h2{font-size:clamp(28px,7vw,46px);color:#ffb3c9}
+p{font-size:clamp(19px,4.5vw,27px);line-height:1.65;color:#fff0f5;max-width:480px}
+.heart{font-size:70px;animation:pulse 1.3s infinite}.small{font-size:17px;color:#ffc8d7}
+button{margin-top:24px;border:0;border-radius:999px;padding:14px 28px;font-size:18px;
+background:#e71955;color:white;box-shadow:0 7px 25px #e7195566;cursor:pointer}
+.dots{position:fixed;bottom:18px;left:0;right:0;text-align:center;z-index:10}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#ffffff55;margin:4px}
+.dot.on{background:#ff6f9a}
+.balloon{position:fixed;font-size:48px;animation:float 5s ease-in-out infinite;opacity:.85}
+.b1{left:6%;top:14%}.b2{right:8%;top:20%;animation-delay:1s}.b3{left:12%;bottom:15%;animation-delay:2s}.b4{right:10%;bottom:12%;animation-delay:3s}
+.spark{position:fixed;font-size:30px;animation:spark 2s infinite}.s1{top:10%;left:20%}.s2{top:13%;right:20%;animation-delay:.7s}.s3{top:38%;right:8%;animation-delay:1.2s}
+@keyframes fade{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:scale(1)}}
+@keyframes pulse{50%{transform:scale(1.12)}} @keyframes float{50%{transform:translateY(-28px) rotate(4deg)}}
+@keyframes spark{0%,100%{opacity:.25;transform:scale(.7)}50%{opacity:1;transform:scale(1.25)}}
+</style>
+</head>
+<body>
+<div class="balloon b1">🎈</div><div class="balloon b2">🎈</div><div class="balloon b3">🎈</div><div class="balloon b4">🎈</div>
+<div class="spark s1">🎆</div><div class="spark s2">✨</div><div class="spark s3">🎇</div>
+
+<section class="page active"><div class="card">
+<div class="heart">❤️</div><h1>Open Me</h1><p>A little birthday surprise made especially for <b>Aaliya</b>...</p>
+<button onclick="next()">Open ❤️</button><div class="small">Tap to begin</div>
+</div></section>
+
+<section class="page"><div class="card">
+<div class="heart">🎂</div><h2>Happy Birthday, Aaliya</h2>
+<p>Today is all about celebrating <b>you</b> — your smile, your heart, and all the beautiful things that make you special.</p>
+<button onclick="next()">Next ❤️</button></div></section>
+
+<section class="page"><div class="card">
+<div class="heart">🌹</div><h2>A Special Wish</h2>
+<p>May Allah bless you with whatever you want, open beautiful doors for you, and fill your life with peace, success and happiness.</p>
+<button onclick="next()">Next ✨</button></div></section>
+
+<section class="page"><div class="card">
+<div class="heart">💫</div><h2>For Your Future</h2>
+<p>May every new chapter bring you closer to your dreams. May your heart stay peaceful, your smile stay bright, and your days become more beautiful.</p>
+<button onclick="next()">Next 💕</button></div></section>
+
+<section class="page"><div class="card">
+<div class="heart">🥂</div><h2>Keep Smiling</h2>
+<p>Keep being the person you are. Keep chasing the things that make you happy. And never forget how precious your presence can be.</p>
+<button onclick="next()">One More ❤️</button></div></section>
+
+<section class="page"><div class="card">
+<div class="heart">🎆</div><h2>Happy Birthday, Aaliya ❤️</h2>
+<p>May this year bring you <b>Success • Peace • Happiness • Love</b> and countless beautiful moments.</p>
+<p>May Allah always keep you protected and blessed. 🤲❤️</p>
+<div class="small">With lots of love — just for you.</div>
+<button onclick="restart()">Read Again ❤️</button></div></section>
+
+<div class="dots" id="dots"></div>
+<script>
+let i=0, pages=[...document.querySelectorAll('.page')], dots=document.getElementById('dots');
+pages.forEach((_,n)=>{let d=document.createElement('span');d.className='dot'+(n===0?' on':'');dots.appendChild(d)});
+function show(n){i=(n+pages.length)%pages.length;pages.forEach((p,k)=>p.classList.toggle('active',k===i));[...dots.children].forEach((d,k)=>d.classList.toggle('on',k===i))}
+function next(){show(i+1)} function restart(){show(0)}
+</script>
+</body>
+</html>
